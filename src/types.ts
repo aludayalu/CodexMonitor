@@ -85,8 +85,14 @@ export type AppSettings = {
   newAgentShortcut: string | null;
   newWorktreeAgentShortcut: string | null;
   newCloneAgentShortcut: string | null;
+  toggleProjectsSidebarShortcut: string | null;
+  toggleGitSidebarShortcut: string | null;
   toggleDebugPanelShortcut: string | null;
   toggleTerminalShortcut: string | null;
+  cycleAgentNextShortcut: string | null;
+  cycleAgentPrevShortcut: string | null;
+  cycleWorkspaceNextShortcut: string | null;
+  cycleWorkspacePrevShortcut: string | null;
   lastComposerModelId: string | null;
   lastComposerReasoningEffort: string | null;
   uiScale: number;

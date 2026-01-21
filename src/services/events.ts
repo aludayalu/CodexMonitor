@@ -86,8 +86,14 @@ const menuNewWorktreeAgentHub = createEventHub<void>("menu-new-worktree-agent");
 const menuNewCloneAgentHub = createEventHub<void>("menu-new-clone-agent");
 const menuAddWorkspaceHub = createEventHub<void>("menu-add-workspace");
 const menuOpenSettingsHub = createEventHub<void>("menu-open-settings");
+const menuToggleProjectsSidebarHub = createEventHub<void>("menu-toggle-projects-sidebar");
+const menuToggleGitSidebarHub = createEventHub<void>("menu-toggle-git-sidebar");
 const menuToggleDebugPanelHub = createEventHub<void>("menu-toggle-debug-panel");
 const menuToggleTerminalHub = createEventHub<void>("menu-toggle-terminal");
+const menuNextAgentHub = createEventHub<void>("menu-next-agent");
+const menuPrevAgentHub = createEventHub<void>("menu-prev-agent");
+const menuNextWorkspaceHub = createEventHub<void>("menu-next-workspace");
+const menuPrevWorkspaceHub = createEventHub<void>("menu-prev-workspace");
 const menuCycleModelHub = createEventHub<void>("menu-composer-cycle-model");
 const menuCycleAccessHub = createEventHub<void>("menu-composer-cycle-access");
 const menuCycleReasoningHub = createEventHub<void>("menu-composer-cycle-reasoning");
@@ -177,6 +183,24 @@ export function subscribeMenuOpenSettings(
   }, options);
 }
 
+export function subscribeMenuToggleProjectsSidebar(
+  onEvent: () => void,
+  options?: SubscriptionOptions,
+): Unsubscribe {
+  return menuToggleProjectsSidebarHub.subscribe(() => {
+    onEvent();
+  }, options);
+}
+
+export function subscribeMenuToggleGitSidebar(
+  onEvent: () => void,
+  options?: SubscriptionOptions,
+): Unsubscribe {
+  return menuToggleGitSidebarHub.subscribe(() => {
+    onEvent();
+  }, options);
+}
+
 export function subscribeMenuToggleDebugPanel(
   onEvent: () => void,
   options?: SubscriptionOptions,
@@ -191,6 +215,42 @@ export function subscribeMenuToggleTerminal(
   options?: SubscriptionOptions,
 ): Unsubscribe {
   return menuToggleTerminalHub.subscribe(() => {
+    onEvent();
+  }, options);
+}
+
+export function subscribeMenuNextAgent(
+  onEvent: () => void,
+  options?: SubscriptionOptions,
+): Unsubscribe {
+  return menuNextAgentHub.subscribe(() => {
+    onEvent();
+  }, options);
+}
+
+export function subscribeMenuPrevAgent(
+  onEvent: () => void,
+  options?: SubscriptionOptions,
+): Unsubscribe {
+  return menuPrevAgentHub.subscribe(() => {
+    onEvent();
+  }, options);
+}
+
+export function subscribeMenuNextWorkspace(
+  onEvent: () => void,
+  options?: SubscriptionOptions,
+): Unsubscribe {
+  return menuNextWorkspaceHub.subscribe(() => {
+    onEvent();
+  }, options);
+}
+
+export function subscribeMenuPrevWorkspace(
+  onEvent: () => void,
+  options?: SubscriptionOptions,
+): Unsubscribe {
+  return menuPrevWorkspaceHub.subscribe(() => {
     onEvent();
   }, options);
 }
